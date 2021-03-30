@@ -1,4 +1,5 @@
 import 'package:erp_school/biniding.dart';
+import 'package:erp_school/home.dart';
 import 'package:erp_school/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
