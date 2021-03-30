@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "253364134218",
+    "project_id": "esp-school",
+    "storage_bucket": "esp-school.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253364134218:android:7fe954f37fd2d1040961b3",
+        "android_client_info": {
+          "package_name": "com.example.erp_school"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "253364134218-hagegjqfo46gd71a4pa83dk3uvcoqt9i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjbdDDY63Kr0Me2vcxORrtbUkbQ40aSOc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "253364134218-hagegjqfo46gd71a4pa83dk3uvcoqt9i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
