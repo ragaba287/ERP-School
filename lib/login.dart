@@ -1,9 +1,11 @@
+import 'package:erp_school/view_model/auth_view_model.dart';
 import 'package:erp_school/widget/custom_text.dart';
 import 'package:erp_school/widget/custom_textformfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends GetWidget<AuthViewModel> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -66,7 +68,9 @@ class LoginScreen extends StatelessWidget {
                       text: "Mobile Number/Email",
                       hint: "mhmdreda@gmail.com",
                       obscureText: false,
-                      // onSaved: () {},
+                      onSaved: (value) {
+                        controller.email = value;
+                      },
                       validator: (value) {
                         if (value == null) {
                           print("error");
@@ -80,7 +84,9 @@ class LoginScreen extends StatelessWidget {
                       text: "Password",
                       hint: "*******",
                       obscureText: true,
-                      // onSaved: () {},
+                      onSaved: (value) {
+                        controller.password = value;
+                      },
                       validator: (value) {
                         if (value == null) {
                           print("error");
@@ -92,7 +98,13 @@ class LoginScreen extends StatelessWidget {
                     ),
                     CupertinoButton(
                       padding: EdgeInsets.all(18.0),
-                      onPressed: () {},
+                      onPressed: () {
+                        _formKey.currentState.save();
+
+                        if (_formKey.currentState.validate()) {
+                          controller.signInWithEmailAndPassword();
+                        }
+                      },
                       child: Container(
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),

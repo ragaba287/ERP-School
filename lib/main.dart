@@ -1,9 +1,15 @@
+import 'package:erp_school/biniding.dart';
 import 'package:erp_school/login.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:your_splash/your_splash.dart';
 
-void main() {
-  runApp(MaterialApp(
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(GetMaterialApp(
+    initialBinding: Binding(),
     debugShowCheckedModeBanner: false,
     home: SplashScreen.timed(
       seconds: 5,
