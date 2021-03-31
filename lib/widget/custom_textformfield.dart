@@ -8,8 +8,13 @@ class CustomTextFormField extends StatelessWidget {
   final Function validator;
   final bool obscureText;
 
-  const CustomTextFormField(
-      {this.text, this.hint, this.onSaved, this.validator, this.obscureText});
+  const CustomTextFormField({
+    this.text = 'Type text',
+    this.hint = 'Hint text',
+    this.onSaved,
+    this.validator,
+    this.obscureText = false,
+  });
 
   @override
   Widget build(BuildContext context) {

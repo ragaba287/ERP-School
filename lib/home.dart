@@ -1,3 +1,5 @@
+import 'package:erp_school/fees.dart';
+import 'package:erp_school/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 
@@ -44,7 +46,7 @@ class Home extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                'John',
+                                'Emmy',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 40,
@@ -80,12 +82,19 @@ class Home extends StatelessWidget {
                           )
                         ],
                       ),
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: 43,
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => Profile()));
+                        },
                         child: CircleAvatar(
-                          radius: 40,
-                          backgroundColor: Color(0xffCACACA),
+                          backgroundColor: Colors.white,
+                          radius: 43,
+                          child: CircleAvatar(
+                            radius: 40,
+                            backgroundColor: Color(0xffCACACA),
+                            backgroundImage: AssetImage('assets/user_pic.png'),
+                          ),
                         ),
                       )
                     ],
@@ -101,6 +110,11 @@ class Home extends StatelessWidget {
                       TopCategory(
                         catColor: Color(0xffFFD8FF),
                         catText: '\$6400',
+                        catHint: 'Fees Due',
+                        onPress: () {
+                          Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => Fees()));
+                        },
                       ),
                     ],
                   ),
@@ -219,51 +233,56 @@ class TopCategory extends StatelessWidget {
     this.catText = '00.0%',
     this.catHint = 'Attendance',
     this.catIcon = 'assets/catIcons/ic_user.png',
+    this.onPress,
   });
   final Color catColor;
   final String catText;
   final String catHint;
   final String catIcon;
+  final Function onPress;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(20),
-      height: 200,
-      width: (MediaQuery.of(context).size.width / 2) - 45,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(
-          color: Color(0xff5278C1),
+    return InkWell(
+      onTap: onPress,
+      child: Container(
+        padding: EdgeInsets.all(20),
+        height: 200,
+        width: (MediaQuery.of(context).size.width / 2) - 45,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border.all(
+            color: Color(0xff5278C1),
+          ),
+          borderRadius: BorderRadius.circular(10),
         ),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            padding: EdgeInsets.all(15),
-            decoration: BoxDecoration(
-                color: catColor.withOpacity(.15),
-                borderRadius: BorderRadius.circular(50)),
-            child: Image.asset(catIcon),
-          ),
-          Text(
-            catText,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                  color: catColor.withOpacity(.15),
+                  borderRadius: BorderRadius.circular(50)),
+              child: Image.asset(catIcon),
             ),
-          ),
-          Text(
-            catHint,
-            style: TextStyle(
-              color: Colors.grey,
+            Text(
+              catText,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          )
-        ],
+            Text(
+              catHint,
+              style: TextStyle(
+                color: Colors.grey,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
