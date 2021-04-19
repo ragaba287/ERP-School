@@ -1,6 +1,9 @@
+import 'package:erp_school/assignment.dart';
 import 'package:erp_school/fees.dart';
 import 'package:erp_school/profile.dart';
+import 'package:erp_school/time_table.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class Home extends StatelessWidget {
@@ -133,6 +136,10 @@ class Home extends StatelessWidget {
                       ActionCat(
                         actionIcon: 'assets/catIcons/ic_assignment.png',
                         actionLable: 'Assignment',
+                        onPress: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => Assignment()));
+                        },
                       ),
                       ActionCat(
                         actionIcon: 'assets/catIcons/ic_holiday.png',
@@ -141,6 +148,10 @@ class Home extends StatelessWidget {
                       ActionCat(
                         actionIcon: 'assets/catIcons/ic_calendra.png',
                         actionLable: 'Time Table',
+                        onPress: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => TimeTable()));
+                        },
                       ),
                       ActionCat(
                         actionIcon: 'assets/catIcons/ic_results.png',

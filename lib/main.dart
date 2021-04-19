@@ -14,7 +14,7 @@ void main() async {
     debugShowCheckedModeBanner: false,
     home: SplashScreen.timed(
       seconds: 5,
-      route: MaterialPageRoute(builder: (_) => LoginScreen()),
+      route: MaterialPageRoute(builder: (_) => Home()),
       body: Scaffold(
         body: InkWell(
             child: Stack(
